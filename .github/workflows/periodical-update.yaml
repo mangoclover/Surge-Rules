@@ -106,5 +106,4 @@ jobs:
           git add .
           git commit -m "${{ env.RELEASE_NAME }}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f -u origin release          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/telegramcidr.txt > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.txt > /dev/null 2>&1
+          git push -f -u origin release
