@@ -59,7 +59,7 @@ jobs:
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f -u origin release
           
-    - name: Purge CDN Cache
-      run: |
-        curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/telegramcidr.txt > /dev/null 2>&1
-        curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list > /dev/null 2>&1
+      - name: Purge CDN Cache
+        run: |
+          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/telegramcidr.txt > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list > /dev/null 2>&1
