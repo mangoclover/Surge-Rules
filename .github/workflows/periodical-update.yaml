@@ -32,8 +32,8 @@ jobs:
       - name: Move files to publish directory
         run: |
           mkdir -p publish
-          install -p {telegramcidr}.txt ./publish/
-          install -p {telegramcidr}.list ./publish/
+          install -p telegramcidr.txt ./publish/
+          install -p telegramcidr.list ./publish/
           mv Ruleset ./publish/
           mv Domainset ./publish/
           
