@@ -22,8 +22,6 @@ jobs:
 
       - name: Generate telegramcidr.txt file
         run: |
-          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > telegramcidr.txt
-          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > telegramcidr.list
           mkdir -p Domainset
           mkdir -p Ruleset
           curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Domainset/telegramcidr.txt
@@ -34,8 +32,8 @@ jobs:
       - name: Move files to publish directory
         run: |
           mkdir -p publish
-          install -p telegramcidr.txt ./publish/
-          install -p telegramcidr.list ./publish/
+          install -p Domainset/telegramcidr.txt ./publish/
+          install -p Ruleset/telegramcidr.list ./publish/
           mv Ruleset ./publish/
           mv Domainset ./publish/
           
