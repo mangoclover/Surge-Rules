@@ -35,3 +35,4 @@
 
 - [@Loyalsoldier/surge-rules](https://github.com/Loyalsoldier/surge-rules)-参考了 `run.yml` 部分代码
 - [@DivineEngine/Profiles](https://github.com/DivineEngine/Profiles/tree/master/Surge/Ruleset)-引用了 `Surge/Ruleset/Unbreak.list` 部分代码
+- [@privacy-protection-tools](https://github.com/privacy-protection-tools/anti-AD)-引用了 `anti-AD/anti-ad-surge2.txt` 部分代码
