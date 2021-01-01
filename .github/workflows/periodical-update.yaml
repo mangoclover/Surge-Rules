@@ -20,6 +20,9 @@ jobs:
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "Unbreak_list=https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list" >> $GITHUB_ENV
         shell: bash
+        
+      - name: Checkout the default branch
+        uses: actions/checkout@v2.3.4
 
       - name: Generate telegramcidr.txt file
         run: |
