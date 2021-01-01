@@ -68,3 +68,4 @@ jobs:
         run: |
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/telegramcidr.txt > /dev/null 2>&1
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list > /dev/null 2>&1
+          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list > /dev/null 2>&1
