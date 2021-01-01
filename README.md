@@ -20,8 +20,8 @@
 #### Rule-SET:
 
 - **Unbreak.list**：
-  -  GitHub Raw [Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
-  
+  -  `GitHub Raw` [Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
+  -  `CDN加速` [Unbreak.list](https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
 ### 使用方式
 
 关于 Surge 的详细使用方法，见[官方手册](https://manual.nssurge.com)。
