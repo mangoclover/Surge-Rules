@@ -33,7 +33,7 @@ jobs:
           
       - name: Generate Unbreak_list file
         run: |
-          curl -sSL ${Unbreak_list} | grep -v "#" > Ruleset/Unbreak.list
+          curl -sSL ${Unbreak_list} > Ruleset/Unbreak.list
           
       - name: Move files to publish directory
         run: |
