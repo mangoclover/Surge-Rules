@@ -19,7 +19,7 @@ jobs:
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "Unbreak_list=https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list" >> $GITHUB_ENV
-          echo "anti-ad-surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
+          echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -41,7 +41,7 @@ jobs:
           
       - name: Generate anti-ad-surge file
         run: |
-          curl -sSL ${anti-ad-surge} > Domainset/anti-ad-surge.txt
+          curl -sSL ${anti_ad_surge} > Domainset/anti-ad-surge.txt
      
       - name: Move files to publish directory
         run: |
