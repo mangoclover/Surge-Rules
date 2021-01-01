@@ -41,7 +41,7 @@ jobs:
           
       - name: Generate anti-ad-surge file
         run: |
-          curl -sSL ${anti_ad_surge} > Domainset/anti-ad-surge.txt
+          curl -sSL ${anti_ad_surge}  | grep -v "#" > Domainset/anti-ad-surge.txt
      
       - name: Move files to publish directory
         run: |
