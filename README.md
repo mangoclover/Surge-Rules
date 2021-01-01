@@ -20,8 +20,8 @@
 #### Rule-SET:
 
 - **Unbreak.list**：
-  -  `GitHub Raw` [Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
-  -  `CDN加速` [Unbreak.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
+  -  `GitHub Raw` [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
+  -  `CDN加速` [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
   
 - **Telegramcidr.list**：
   -  `GitHub Raw` [telegramcidr.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list)
