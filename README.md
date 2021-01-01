@@ -24,3 +24,4 @@
 ## 致谢
 
 - [@Loyalsoldier/surge-rules](https://github.com/Loyalsoldier/surge-rules)-参考了 `run.yml` 部分代码
+- [@DivineEngine/Profiles](https://github.com/DivineEngine/Profiles/tree/master/Surge/Ruleset)-参考了 `Surge/Ruleset/Unbreak.list` 部分代码
