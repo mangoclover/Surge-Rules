@@ -20,12 +20,12 @@
 #### Rule-SET:
 
 - **Unbreak.list**：
-  -  `GitHub Raw` [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
-  -  `CDN加速` [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
+  - [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
+  - [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
   
 - **Telegramcidr.list**：
-  -  `GitHub Raw` [telegramcidr.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list)
-  -  `CDN加速` [telegramcidr.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list)
+  - [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list)
+  - [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list)
   
 ### 使用方式
 
