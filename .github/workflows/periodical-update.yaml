@@ -33,7 +33,7 @@ jobs:
           
       - name: Generate Unbreak_list file
         run: |
-          curl -sSL ${Unbreak_list} | perl -ne '/^server=\/([^\/]+)\// && print ".$1\n"' > Ruleset/Unbreak.list
+          curl -sSL ${Unbreak_list} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > Ruleset/Unbreak.list
           
       - name: Move files to publish directory
         run: |
