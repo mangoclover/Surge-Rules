@@ -20,6 +20,11 @@ jobs:
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "Unbreak_list=https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list" >> $GITHUB_ENV
           echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
+          echo "annoyances-filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt" >> $GITHUB_ENV
+          echo "base-filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt" >> $GITHUB_ENV
+          echo "chinese-filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt" >> $GITHUB_ENV
+          echo "social-media-filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/social-media-filter.txt" >> $GITHUB_ENV
+          echo "tracking-protection-filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -42,6 +47,26 @@ jobs:
       - name: Generate anti-ad-surge file
         run: |
           curl -sSL ${anti_ad_surge}  | grep -v "#" > Domainset/anti-ad-surge.txt
+          
+      - name: Generate annoyances-filter file
+        run: |
+          curl -sSL ${annoyances-filter} > Domainset/annoyances-filter.txt
+          
+      - name: Generate base-filter file
+        run: |
+          curl -sSL ${base-filter} > Domainset/base-filter.txt
+          
+      - name: Generate chinese-filter file
+        run: |
+          curl -sSL ${chinese-filter} > Domainset/chinese-filter.txt
+          
+      - name: Generate social-media-filter file
+        run: |
+          curl -sSL ${social-media-filter} > Domainset/social-media-filter.txt
+          
+      - name: Generate tracking-protection-filter file
+        run: |
+          curl -sSL ${tracking-protection-filter} > Domainset/tracking-protection-filter.txt
      
       - name: Move files to publish directory
         run: |
