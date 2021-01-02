@@ -18,8 +18,12 @@
 > 如果无法访问域名 `raw.githubusercontent.com`，可以使用第二个地址（`cdn.jsdelivr.net`），其中已针对 `jsdelivr` 作强制清除CDN缓存处理，保证最新性。
 
 ### 代码及下载
-源代码在master branch 
-生成规则集在release branch下载
+源代码在master branch  生成规则集在release branch下载
+
+### 链接
+| 文件 | release分支 |
+| ------ | ------ | 
+|Country.mmdb | [链接](https://raw.githubusercontent.com/JMVoid/ipip2mmdb/release/Country.mmdb) |
 
 ### 使用方式
 
