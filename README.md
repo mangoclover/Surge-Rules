@@ -17,16 +17,10 @@
 
 > 如果无法访问域名 `raw.githubusercontent.com`，可以使用第二个地址（`cdn.jsdelivr.net`），其中已针对 `jsdelivr` 作强制清除CDN缓存处理，保证最新性。
 
-#### Rule-SET:
+### 代码及下载
+源代码在master branch
+生成规则集在release branch下载
 
-- **Unbreak.list**：
-  - [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/Unbreak.list)
-  - [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list)
-  
-- **Telegramcidr.list**：
-  - [https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list](https://raw.githubusercontent.com/mangoclover/Surge-Rules/release/Ruleset/telegramcidr.list)
-  - [https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list](https://cdn.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list)
-  
 ### 使用方式
 
 关于 Surge 的详细使用方法，见[官方手册](https://manual.nssurge.com)。
