@@ -4,7 +4,7 @@
 
 ## 说明
 
-本项目的规则集（DOMAIN-SET 和 RULE-SET）主要来源于网络。
+本项目的所有规则集（DOMAIN-SET 和 RULE-SET）均来自上游列表和网友提交的issues，欢迎各界朋友审阅。
 
 ### ⚠️ 注意：
 
