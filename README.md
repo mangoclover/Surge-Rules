@@ -20,11 +20,6 @@
 ### 代码及下载
 源代码在master branch  生成规则集在release branch下载
 
-### 链接
-| 文件 | release分支 |
-| ------ | ------ | 
-|Country.mmdb | [链接](https://raw.githubusercontent.com/JMVoid/ipip2mmdb/release/Country.mmdb) |
-
 ### 使用方式
 
 关于 Surge 的详细使用方法，见[官方手册](https://manual.nssurge.com)。
