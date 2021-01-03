@@ -26,6 +26,7 @@ jobs:
           echo "social_media_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/social-media-filter.txt" >> $GITHUB_ENV
           echo "tracking_protection_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt" >> $GITHUB_ENV
           echo "adaway=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/adaway.txt" >> $GITHUB_ENV
+          echo "neohosts=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/neohosts.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -71,6 +72,10 @@ jobs:
       - name: Generate adaway file
         run: |
           curl -sSL ${adaway} > Domainset/adaway.txt
+          
+      - name: Generate neohosts file
+        run: |
+          curl -sSL ${adaway} > Domainset/neohosts.txt
      
       - name: Move files to publish directory
         run: |
