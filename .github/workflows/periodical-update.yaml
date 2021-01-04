@@ -27,6 +27,7 @@ jobs:
           echo "tracking_protection_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt" >> $GITHUB_ENV
           echo "adaway=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/adaway.txt" >> $GITHUB_ENV
           echo "neohosts=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/neohosts.txt" >> $GITHUB_ENV
+          echo "Netflix=https://raw.githubusercontent.com/mangoclover/ios_rule_script/master/rule/Surge/Netflix/Netflix.list" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -76,6 +77,10 @@ jobs:
       - name: Generate neohosts file
         run: |
           curl -sSL ${neohosts} > Domainset/neohosts.txt
+          
+      - name: Generate Netflix file
+        run: |
+          curl -sSL ${Netflix} | grep -v "#" > Ruleset/Netflix.list
      
       - name: Move files to publish directory
         run: |
