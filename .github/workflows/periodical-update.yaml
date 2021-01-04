@@ -80,7 +80,7 @@ jobs:
           
       - name: Generate Netflix file
         run: |
-          curl -sSL ${Netflix} | grep -v "#" > Ruleset/Netflix.list
+          curl -sSL ${Netflix}  | grep -v "#" > Ruleset/Netflix.list
      
       - name: Move files to publish directory
         run: |
