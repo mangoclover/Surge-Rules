@@ -15,7 +15,7 @@
 
 ### 规则文件地址
 
-源代码在master branch，生成规则集在release branch下载。
+源代码在 'master branch'，生成规则集在 'release branch' 下载。
 
 ### 使用方式
 
