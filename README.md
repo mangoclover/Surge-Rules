@@ -1,6 +1,6 @@
 # 简介
 
-本项目生成适用于 [**Surge**](https://nssurge.com) 的规则集（DOMAIN-SET 和 RULE-SET）。使用 GitHub Actions 每小时自动构建，保证规则最新。
+本项目生成适用于 [**Surge**](https://nssurge.com) 的规则集（DOMAIN-SET 和 RULE-SET）。使用 GitHub Actions 每天早上 6:30 自动构建，保证最新性。
 
 ## 说明
 
