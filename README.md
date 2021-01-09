@@ -24,7 +24,8 @@ The source code is in the master branch, and the generation rule set is download
 
 ### 使用方式
 
-关于 Surge 的详细使用方法，见[官方手册](https://manual.nssurge.com)。
+关于 Surge 的详细使用方法，见[官方手册](https://manual.nssurge.com)。  
+For the detailed usage of Surge, see the official manual.
 
 ## 致谢
 
