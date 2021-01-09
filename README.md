@@ -10,7 +10,8 @@ All rule sets (DOMAIN-SET and RULE-SET) of this project are from the upstream li
 
 ### ⚠️ 注意：
 
-- **DOMAIN-SET** 同时适用于 Surge for Mac **v3.5.1** 及更新的版本、Surge for iOS **v4.2.2** 及更新的版本，拥有比 RULE-SET 更优秀的匹配效率，建议优先使用。
+- **DOMAIN-SET** 同时适用于 Surge for Mac **v3.5.1** 及更新的版本、Surge for iOS **v4.2.2** 及更新的版本，拥有比 RULE-SET 更优秀的匹配效率，建议优先使用。  
+DOMAIN-SET is also applicable to Surge for Mac v3.5.1 and newer versions, Surge for iOS v4.2.2 and newer versions. It has better matching efficiency than RULE-SET, and it is recommended to use it first.
 - **RULE-SET** 同时适用于 Surge for Mac **v3.0** 及更新的版本、Surge for iOS **v3.4** 及更新的版本。
 
 ## 规则文件地址及使用方式
