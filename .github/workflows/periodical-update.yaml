@@ -54,12 +54,9 @@ jobs:
           curl -sSL ${Loyalsoldier_reject} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > dist/ad-reject.txt
           curl -sSL ${anti_ad_surge}  | grep -v "#" > dist/anti-ad-surge.txt
           curl -sSL ${anti_ad_surge}  | grep -v "#" > Domainset/anti-ad-surge.txt
-      
-      - name: Merge and ad lists and remove duplicates
-        run: |
           awk 'FNR==1{print ""}{print}' dist/*.txt > dist/merge.txt
           awk '!seen[$0]++' dist/merge.txt > dist/anti-ad-surge2.txt
-          cp -rf dist/anti-ad-surge2.txt ./Domainset/
+          cp -rf dist/anti-ad-surge2.txt ./Domainset/  
 
       - name: Generate annoyances-filter file
         run: |
