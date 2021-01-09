@@ -11,7 +11,7 @@ All rule sets (DOMAIN-SET and RULE-SET) of this project are from the upstream li
 ### ⚠️ 注意：
 
 - **DOMAIN-SET** 同时适用于 Surge for Mac **v3.5.1** 及更新的版本、Surge for iOS **v4.2.2** 及更新的版本，专为大量域名集列表文件设计，支持上万条记录的快速查询，拥有比 RULE-SET 更优秀的匹配效率，建议优先使用。  
-DOMAIN-SET is also applicable to Surge for Mac v3.5.1 and newer versions, Surge for iOS v4.2.2 and newer versions. It has better matching efficiency than RULE-SET, and it is recommended to use it first.
+DOMAIN-SET is also applicable to Surge for Mac v3.5.1 and newer versions, Surge for iOS v4.2.2 and newer versions. It is designed for a large number of domain name set list files. It supports fast query of tens of thousands of records, and has more than RULE- SET is recommended for better matching efficiency.
 - **RULE-SET** 同时适用于 Surge for Mac **v3.0** 及更新的版本、Surge for iOS **v3.4** 及更新的版本。  
 RULE-SET is also applicable to Surge for Mac v3.0 and later versions, Surge for iOS v3.4 and later versions.
 
