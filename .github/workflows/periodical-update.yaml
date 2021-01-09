@@ -20,6 +20,7 @@ jobs:
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "Unbreak_list=https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list" >> $GITHUB_ENV
           echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
+          echo "Loyalsoldier_reject=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt" >> $GITHUB_ENV
           echo "annoyances_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt" >> $GITHUB_ENV
           echo "base_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt" >> $GITHUB_ENV
           echo "chinese_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt" >> $GITHUB_ENV
@@ -38,6 +39,7 @@ jobs:
         run: |
           mkdir -p Domainset
           mkdir -p Ruleset
+          mkdir -p dist
           curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Domainset/telegramcidr.txt
           curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Ruleset/telegramcidr.list
           curl -sSL ${telegram_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Domainset/telegramcidr.txt
@@ -49,8 +51,16 @@ jobs:
           
       - name: Generate anti-ad-surge file
         run: |
+          curl -sSL ${Loyalsoldier_reject} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > dist/ad-reject.txt
+          curl -sSL ${anti_ad_surge}  | grep -v "#" > dist/anti-ad-surge.txt
           curl -sSL ${anti_ad_surge}  | grep -v "#" > Domainset/anti-ad-surge.txt
-          
+      
+      - name: Merge and ad lists and remove duplicates
+        run: |
+          awk 'FNR==1{print ""}{print}' dist/*.txt > dist/merge.txt
+          awk '!seen[$0]++' dist/merge.txt > dist/anti-ad-surge2.txt
+          cp -rf dist/anti-ad-surge2.txt ./Domainset/
+
       - name: Generate annoyances-filter file
         run: |
           curl -sSL ${annoyances_filter} > Domainset/annoyances-filter.txt
