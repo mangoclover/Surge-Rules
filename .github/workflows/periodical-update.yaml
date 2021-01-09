@@ -31,6 +31,7 @@ jobs:
           echo "Netflix=https://raw.githubusercontent.com/mangoclover/ios_rule_script/master/rule/Surge/Netflix/Netflix.list" >> $GITHUB_ENV
           echo "China=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/China/China.list" >> $GITHUB_ENV
           echo "Loyalsoldier_direct=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
+          echo "Loyalsoldier_proxy=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -98,6 +99,10 @@ jobs:
       - name: Generate direct.txt file
         run: |
           curl -sSL ${Loyalsoldier_direct} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > Domainset/direct.txt
+          
+      - name: Generate proxy.txt file
+        run: |
+          curl -sSL ${Loyalsoldier_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > Domainset/proxy.txt
      
       - name: Move files to publish directory
         run: |
