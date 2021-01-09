@@ -6,7 +6,7 @@ This project generates rule sets (DOMAIN-SET and RULE-SET) applicable to Surge. 
 ## 说明
 
 本项目的所有规则集（DOMAIN-SET 和 RULE-SET）均来自上游列表，主要为满足 **个人** 使用需求。  
-All rule sets (DOMAIN-SET and RULE-SET) of this project are from the upstream list, mainly to meet the needs of **personal** use.
+All rule sets (DOMAIN-SET and RULE-SET) of this project are from the upstream list, mainly to meet the needs of personal use.
 
 ### ⚠️ 注意：
 
