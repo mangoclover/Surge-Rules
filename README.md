@@ -19,7 +19,8 @@ RULE-SET is also applicable to Surge for Mac v3.0 and later versions, Surge for 
 
 ### 规则文件地址
 
-源代码在 ` master branch `，生成规则集在 ` release branch ` 下载。
+源代码在 ` master branch `，生成规则集在 ` release branch ` 下载。  
+The source code is in the master branch, and the generation rule set is downloaded in the release branch.
 
 ### 使用方式
 
