@@ -32,6 +32,8 @@ jobs:
           echo "China=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/China/China.list" >> $GITHUB_ENV
           echo "Loyalsoldier_direct=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
           echo "Loyalsoldier_proxy=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
+          echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
+          echo "custom_icloud=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -103,7 +105,19 @@ jobs:
       - name: Generate proxy.txt file
         run: |
           curl -sSL ${Loyalsoldier_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > Domainset/proxy.txt
-     
+          
+      - name: Generate apple.txt file
+        run: |
+          curl -sSL ${felixonmars_apple} | perl -ne '/^server=\/([^\/]+)\// && print ".$1\n"' > Domainset/apple.txt
+          curl -sSL ${felixonmars_apple} | perl -ne '/^server=\/([^\/]+)\// && print "DOMAIN-SUFFIX,$1\n"' > Ruleset/apple.list
+          
+      - name: Generate icloud.txt file
+        run: |
+          curl -sSL ${custom_icloud} | grep -E "^full:" | awk -F ':' '{printf "%s\n", $2}' > Domainset/icloud.txt
+          curl -sSL ${custom_icloud} | grep -E "^domain:" | awk -F ':' '{printf ".%s\n", $2}' >> Domainset/icloud.txt
+          curl -sSL ${custom_icloud} | grep -E "^full:" | awk -F ':' '{printf "DOMAIN,%s\n", $2}' > Ruleset/icloud.list
+          curl -sSL ${custom_icloud} | grep -E "^domain:" | awk -F ':' '{printf "DOMAIN-SUFFIX,%s\n", $2}' >> Ruleset/icloud.list
+
       - name: Move files to publish directory
         run: |
           mkdir -p publish
