@@ -28,7 +28,7 @@ jobs:
           echo "tracking_protection_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt" >> $GITHUB_ENV
           echo "adaway=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/adaway.txt" >> $GITHUB_ENV
           echo "neohosts=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/neohosts.txt" >> $GITHUB_ENV
-          echo "Netflix=https://raw.githubusercontent.com/mangoclover/ios_rule_script/master/rule/Surge/Netflix/Netflix.list" >> $GITHUB_ENV
+          echo "Netflix= https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list" >> $GITHUB_ENV
           echo "China=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/China/China.list" >> $GITHUB_ENV
           echo "Loyalsoldier_direct=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
           echo "Loyalsoldier_proxy=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
