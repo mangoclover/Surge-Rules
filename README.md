@@ -34,3 +34,4 @@ For the detailed usage of Surge, see the official manual.
 - [@privacy-protection-tools](https://github.com/privacy-protection-tools/anti-AD)
 - [@geekdada](https://github.com/geekdada/surge-list)
 - [@felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+- [@blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
