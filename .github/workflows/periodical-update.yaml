@@ -125,13 +125,13 @@ jobs:
 
 
 
-      - name: Checkout v2fly/domain-list-community
+
+        
+      - name: Generate direct2.txt file
         uses: actions/checkout@v2.3.4
         with:
           repository: v2fly/domain-list-community
           path: community
-        
-      - name: Get and add direct domains into temp-direct.txt file
         run: |
           curl -sSL $CHINA_DOMAINS_URL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > temp-direct.txt
           curl -sSL ${CUSTOM_DIRECT} | perl -ne '/^(domain|full):([^:]+)(\n$|:@.+)/ && print "$2\n"' >> temp-direct.txt
