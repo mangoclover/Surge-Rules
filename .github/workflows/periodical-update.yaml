@@ -126,36 +126,27 @@ jobs:
 
 
 
-        
-      - name: Generate direct2.txt file
+      - name: Checkout v2fly/domain-list-community
         uses: actions/checkout@v2.3.4
         with:
           repository: v2fly/domain-list-community
           path: community
+      
+      - name: Generate direct2.txt file
         run: |
           curl -sSL $CHINA_DOMAINS_URL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > temp-direct.txt
           curl -sSL ${CUSTOM_DIRECT} | perl -ne '/^(domain|full):([^:]+)(\n$|:@.+)/ && print "$2\n"' >> temp-direct.txt
-  
-      - name: Sort and generate redundant lists
-        run: |
           cat temp-direct.txt | sort --ignore-case -u > direct-list-with-redundant
-      - name: Remove redundant domains
-        run: |
           chmod +x findRedundantDomain.py
           ./findRedundantDomain.py ./direct-list-with-redundant ./direct-list-deleted-unsort
           [ ! -f "direct-list-deleted-unsort" ] && touch direct-list-deleted-unsort
           sort ./direct-list-deleted-unsort > ./direct-list-deleted-sort
           diff ./direct-list-deleted-sort ./direct-list-with-redundant | awk '/^>/{print $2}' > ./direct-list-without-redundant
-     
-      - name: Remove domains end with ".cn" in "temp-geolocation-!cn.txt" and write lists to data directory
-        run: |
           cat direct-list-without-redundant | sort --ignore-case -u | perl -ne '/^((?=^.{1,255})[a-zA-Z0-9][-_a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-_a-zA-Z0-9]{0,62})*)/ && print "$1\n"' > ./community/data/cn
-      - name: Add `regexp` and `keyword` type of rules back into "cn", "geolocation-!cn" and "category-ads-all" list
-        run: |
           [ -f "direct-reserve.txt" ] && cat direct-reserve.txt >> ./community/data/cn
           cp ./community/data/cn direct-list.txt
           grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' direct-list.txt > Domainset/direct2.txt
-
+  
       - name: Move files to publish directory
         run: |
           mkdir -p publish
