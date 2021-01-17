@@ -143,7 +143,6 @@ jobs:
           sort ./direct-list-deleted-unsort > ./direct-list-deleted-sort
           diff ./direct-list-deleted-sort ./direct-list-with-redundant | awk '/^>/{print $2}' > ./direct-list-without-redundant
           cat direct-list-without-redundant | sort --ignore-case -u | perl -ne '/^((?=^.{1,255})[a-zA-Z0-9][-_a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-_a-zA-Z0-9]{0,62})*)/ && print "$1\n"' > ./community/data/cn
-          [ -f "direct-reserve.txt" ] && cat direct-reserve.txt >> ./community/data/cn
           cp ./community/data/cn direct-list.txt
           grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' direct-list.txt > Domainset/direct2.txt
   
