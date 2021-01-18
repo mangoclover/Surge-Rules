@@ -30,7 +30,6 @@ For the detailed usage of Surge, see the official manual.
 ## 致谢
 
 - [@Loyalsoldier](https://github.com/Loyalsoldier/surge-rules)
-- [@DivineEngine](https://github.com/DivineEngine/Profiles/tree/master/Surge/Ruleset)
 - [@privacy-protection-tools](https://github.com/privacy-protection-tools/anti-AD)
 - [@geekdada](https://github.com/geekdada/surge-list)
 - [@felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
