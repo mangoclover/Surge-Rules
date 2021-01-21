@@ -191,6 +191,6 @@ jobs:
         uses: dev-drprasad/delete-older-releases@v0.1.0
         with:
           repo: mangoclover/Surge-Rules
-          keep_latest: 3
+          keep_latest: 0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
