@@ -139,7 +139,7 @@ jobs:
       - name: Generate direct2.txt file
         run: |
           curl -sSL $CHINA_DOMAINS_URL | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > temp-direct.txt
-          curl -sSL ${CUSTOM_DIRECT} | perl -ne '/^(domain|full):([^:]+)(\n$|:@.+)/ && print "$2\n"' >> temp-direct.txt
+          curl -sSL ${CUSTOM_DIRECT} | perl -ne '/^(domain):([^:]+)(\n$|:@.+)/ && print "$2\n"' >> temp-direct.txt
           cat temp-direct.txt | sort --ignore-case -u > direct-list-with-redundant
           chmod +x findRedundantDomain.py
           ./findRedundantDomain.py ./direct-list-with-redundant ./direct-list-deleted-unsort
@@ -148,7 +148,8 @@ jobs:
           diff ./direct-list-deleted-sort ./direct-list-with-redundant | awk '/^>/{print $2}' > ./direct-list-without-redundant
           cat direct-list-without-redundant | sort --ignore-case -u | perl -ne '/^((?=^.{1,255})[a-zA-Z0-9][-_a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-_a-zA-Z0-9]{0,62})*)/ && print "$1\n"' > ./community/data/cn
           cp ./community/data/cn direct-list.txt
-          grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' direct-list.txt > Domainset/direct2.txt
+          grep -Ev "^(regexp|keyword):" | perl -ne '/^(full:)([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "$2\n"' direct-list.txt > Domainset/direct2.txt
+          grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' direct-list.txt >> Domainset/direct2.txt
   
       - name: Move files to publish directory
         run: |
