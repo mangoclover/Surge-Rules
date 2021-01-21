@@ -46,8 +46,8 @@ jobs:
           mkdir -p dist
           cp parts/telegram_ips.txt Domainset/telegramcidr.txt
           cp parts/telegram_ips.txt Ruleset/telegramcidr.list
-          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Domainset/telegramcidr.txt
-          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Ruleset/telegramcidr.list
+          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' >> Domainset/telegramcidr.txt
+          curl -sSL ${telegram_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' >> Ruleset/telegramcidr.list
           curl -sSL ${telegram_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Domainset/telegramcidr.txt
           curl -sSL ${telegram_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Ruleset/telegramcidr.list
           
