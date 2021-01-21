@@ -20,6 +20,7 @@ jobs:
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
           echo "Loyalsoldier_reject=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt" >> $GITHUB_ENV
+          echo "custom_private=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/private.txt" >> $GITHUB_ENV
           echo "annoyances_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt" >> $GITHUB_ENV
           echo "base_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt" >> $GITHUB_ENV
           echo "chinese_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt" >> $GITHUB_ENV
@@ -116,7 +117,13 @@ jobs:
           curl -sSL ${custom_icloud} | grep -E "^domain:" | awk -F ':' '{printf ".%s\n", $2}' >> Domainset/icloud.txt
           curl -sSL ${custom_icloud} | grep -E "^full:" | awk -F ':' '{printf "DOMAIN,%s\n", $2}' > Ruleset/icloud.list
           curl -sSL ${custom_icloud} | grep -E "^domain:" | awk -F ':' '{printf "DOMAIN-SUFFIX,%s\n", $2}' >> Ruleset/icloud.list
-
+      
+      - name: Generate private.txt file
+        run: |
+          curl -sSL ${custom_private} | awk -F ':' '/^full:/ {printf "%s\n", $2}' > Domainset/private.txt
+          curl -sSL ${custom_private} | awk -F ':' '/^domain:/ {printf ".%s\n", $2}' >> Domainset/private.txt
+          curl -sSL ${custom_private} | awk -F ':' '/^full:/ {printf "DOMAIN,%s\n", $2}' > Ruleset/private.list
+          curl -sSL ${custom_private} | awk -F ':' '/^domain:/ {printf "DOMAIN-SUFFIX,%s\n", $2}' >> Ruleset/private.list
 
 
 
