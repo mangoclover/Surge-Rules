@@ -186,11 +186,3 @@ jobs:
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list > /dev/null 2>&1
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list > /dev/null 2>&1
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/anti-ad-surge.txt > /dev/null 2>&1
-
-      - name: Delete older releases
-        uses: dev-drprasad/delete-older-releases@v0.2.0
-        with:
-          repo: mangoclover/Surge-Rules
-          keep_latest: 0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
