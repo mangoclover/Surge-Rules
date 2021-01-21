@@ -188,7 +188,7 @@ jobs:
           curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/anti-ad-surge.txt > /dev/null 2>&1
 
       - name: Delete older releases
-        uses: dev-drprasad/delete-older-releases@v0.1.0
+        uses: dev-drprasad/delete-older-releases@v0.2.0
         with:
           repo: mangoclover/Surge-Rules
           keep_latest: 0
