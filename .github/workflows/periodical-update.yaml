@@ -170,7 +170,7 @@ jobs:
 
       - name: Git push assets to "release" branch
         run: |
-          cd publish
+          cd publish || exit 1
           git init
           git config --local user.name "github-action[bot]"
           git config --local user.email "48041092+mangoclover@users.noreply.github.com"
