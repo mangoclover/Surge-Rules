@@ -19,7 +19,7 @@ jobs:
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
-          echo "Loyalsoldier_reject=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt" >> $GITHUB_ENV
+          echo "mangoclover_reject=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/reject-list.txt" >> $GITHUB_ENV
           echo "custom_private=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/private.txt" >> $GITHUB_ENV
           echo "annoyances_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt" >> $GITHUB_ENV
           echo "base_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt" >> $GITHUB_ENV
@@ -30,8 +30,8 @@ jobs:
           echo "neohosts=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/neohosts.txt" >> $GITHUB_ENV
           echo "Netflix= https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list" >> $GITHUB_ENV
           echo "China=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/China/China.list" >> $GITHUB_ENV
-          echo "Loyalsoldier_direct=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
-          echo "Loyalsoldier_proxy=https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
+          echo "mangoclover_direct=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
+          echo "mangoclover_proxy=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
           echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
           echo "custom_icloud=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
         shell: bash
@@ -53,7 +53,7 @@ jobs:
           
       - name: Generate anti-ad-surge file
         run: |
-          curl -sSL ${Loyalsoldier_reject} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > dist/ad-reject.txt
+          curl -sSL ${mangoclover_reject} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:|full:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' > dist/ad-reject.txt
           curl -sSL ${anti_ad_surge}  | grep -v "#" > dist/anti-ad-surge.txt
           curl https://raw.githubusercontent.com/mangoclover/target-AD/master/target-AD-surge2.txt  | grep -v "#" > dist/anti-ad-surge2.txt
           curl -sSL ${anti_ad_surge}  | grep -v "#" > Domainset/anti-ad-surge.txt
@@ -99,13 +99,13 @@ jobs:
           
       - name: Generate direct.txt file
         run: |
-          curl -sSL ${Loyalsoldier_direct} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(full:)([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "$2\n"' > Domainset/direct.txt
-          curl -sSL ${Loyalsoldier_direct} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' >> Domainset/direct.txt
+          curl -sSL ${mangoclover_direct} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(full:)([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "$2\n"' > Domainset/direct.txt
+          curl -sSL ${mangoclover_direct} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' >> Domainset/direct.txt
           
       - name: Generate proxy.txt file
         run: |
-          curl -sSL ${Loyalsoldier_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(full:)([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "$2\n"' > Domainset/proxy.txt
-          curl -sSL ${Loyalsoldier_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' >> Domainset/proxy.txt
+          curl -sSL ${mangoclover_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(full:)([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "$2\n"' > Domainset/proxy.txt
+          curl -sSL ${mangoclover_proxy} | grep -Ev "^(regexp|keyword):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print ".$2\n"' >> Domainset/proxy.txt
           
       - name: Generate apple.txt file
         run: |
