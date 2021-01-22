@@ -148,8 +148,8 @@ jobs:
         run: |
           cd publish || exit 1
           git init
-          git config --global user.name "mangoclover-bot"
-          git config --global user.email "48041092+mangoclover@users.noreply.github.com"
+          git config --local user.name "github-action[bot]"
+          git config --local user.email "48041092+mangoclover@users.noreply.github.com"
           git checkout -b release
           git add .
           git commit -m "${{ env.RELEASE_NAME }}"
