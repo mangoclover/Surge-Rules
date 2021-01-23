@@ -20,7 +20,7 @@ jobs:
           echo "telegram_cidr=https://core.telegram.org/resources/cidr.txt" >> $GITHUB_ENV
           echo "anti_ad_surge=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt" >> $GITHUB_ENV
           echo "mangoclover_reject=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/reject-list.txt" >> $GITHUB_ENV
-          echo "custom_private=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/private.txt" >> $GITHUB_ENV
+          echo "custom_private=https://raw.githubusercontent.com/mangoclover/domain-list-custom/release/private.txt" >> $GITHUB_ENV
           echo "annoyances_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt" >> $GITHUB_ENV
           echo "base_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt" >> $GITHUB_ENV
           echo "chinese_filter=https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt" >> $GITHUB_ENV
@@ -33,7 +33,7 @@ jobs:
           echo "mangoclover_direct=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/direct-list.txt" >> $GITHUB_ENV
           echo "mangoclover_proxy=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
           echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
-          echo "custom_icloud=https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
+          echo "custom_icloud=https://raw.githubusercontent.com/mangoclover/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
