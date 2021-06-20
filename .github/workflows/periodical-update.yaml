@@ -34,7 +34,6 @@ jobs:
           echo "mangoclover_proxy=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
           echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
           echo "custom_icloud=https://raw.githubusercontent.com/mangoclover/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
-          echo "blacklist=https://gist.githubusercontent.com/mangoclover/f372ee42f9efe5ce6d02e03686aba274/raw/624cc29a43ba07ca0b83b60231fe1cd125db2fd7/blacklist.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -127,10 +126,6 @@ jobs:
           curl -sSL ${custom_private} | awk -F ':' '/^full:/ {printf "DOMAIN,%s\n", $2}' > Ruleset/private.list
           curl -sSL ${custom_private} | awk -F ':' '/^domain:/ {printf "DOMAIN-SUFFIX,%s\n", $2}' >> Ruleset/private.list
           
-          
-      - name: Generate blacklist file
-        run: |
-          curl -sSL ${blacklist} | perl -ne '/^http:\/([^\/]+)\// && print "DOMAIN-SUFFIX,$1\n"' > Ruleset/blacklist.list
           
       - name: Move files to publish directory
         run: |
