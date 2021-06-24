@@ -34,7 +34,6 @@ jobs:
           echo "mangoclover_proxy=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
           echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
           echo "custom_icloud=https://raw.githubusercontent.com/mangoclover/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
-          echo "cnip=https://raw.githubusercontent.com/mangoclover/Self_Config_Public/master/Surge4/Ruleset/cnip.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -126,12 +125,7 @@ jobs:
           curl -sSL ${custom_private} | awk -F ':' '/^domain:/ {printf ".%s\n", $2}' >> Domainset/private.txt
           curl -sSL ${custom_private} | awk -F ':' '/^full:/ {printf "DOMAIN,%s\n", $2}' > Ruleset/private.list
           curl -sSL ${custom_private} | awk -F ':' '/^domain:/ {printf "DOMAIN-SUFFIX,%s\n", $2}' >> Ruleset/private.list
-         
-      - name: Generate cnip.txt file
-        run: |
-          curl -sSL ${cnip} | perl -ne '/^address=/ && print "IP-CIDR,$1\n"' > Domainset/cnip.txt
-      
-          
+        
       - name: Move files to publish directory
         run: |
           mkdir -p publish
