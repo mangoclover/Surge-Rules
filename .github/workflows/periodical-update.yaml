@@ -129,7 +129,7 @@ jobs:
          
       - name: Generate cnip.txt file
         run: |
-          curl -sSL ${cnip} | perl -ne '/^address=\/([^\/]+)\// && print "IP-CIDR,$1\n"' > Domainset/cnip.txt
+          curl -sSL ${cnip} | perl -ne '/^address=/ && print "IP-CIDR,$1\n"' > Domainset/cnip.txt
       
           
       - name: Move files to publish directory
