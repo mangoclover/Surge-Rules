@@ -163,5 +163,5 @@ jobs:
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/Domainset/${file}"
           done
           for file in $(ls Ruleset); do
-            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/Ruleset/${file}"
           done
