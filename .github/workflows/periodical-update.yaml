@@ -156,9 +156,12 @@ jobs:
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f -u origin release
 
-      - name: Purge CDN Cache
+      - name: Purge jsdelivr CDN
         run: |
-          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/telegramcidr.txt > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/telegramcidr.list > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Ruleset/Unbreak.list > /dev/null 2>&1
-          curl -L https://purge.jsdelivr.net/gh/mangoclover/Surge-Rules@release/Domainset/anti-ad-surge.txt > /dev/null 2>&1
+          cd publish || exit 1
+          for file in $(ls); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
+          done
+          for file in $(ls ruleset); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
+          done
