@@ -160,7 +160,7 @@ jobs:
         run: |
           cd publish || exit 1
           for file in $(ls Domainset); do
-            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/Domainset/${file}"
           done
           for file in $(ls Ruleset); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
