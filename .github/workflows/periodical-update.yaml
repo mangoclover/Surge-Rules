@@ -162,6 +162,6 @@ jobs:
           for file in $(ls); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
           done
-          for file in $(ls ruleset); do
+          for file in $(ls Ruleset); do
             curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/ruleset/${file}"
           done
