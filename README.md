@@ -22,6 +22,7 @@ For the detailed usage of Surge, see the official manual.
 
 # 致谢
 
+- [@Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip)
 - [@Loyalsoldier](https://github.com/Loyalsoldier/surge-rules)
 - [@privacy-protection-tools](https://github.com/privacy-protection-tools/anti-AD)
 - [@geekdada](https://github.com/geekdada/surge-list)
