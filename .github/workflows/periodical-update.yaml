@@ -94,8 +94,8 @@ jobs:
       - name: Generate Netflix file
         run: |
           curl -sSL ${Netflix}  | grep -v "#" > Ruleset/Netflix.list
-          curl -sSL ${Netflix_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Ruleset/netflixcidr.txt
-          curl -sSL ${Netflix_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Ruleset/netflixcidr.txt
+          curl -sSL ${Netflix_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Ruleset/netflixcidr.list
+          curl -sSL ${Netflix_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Ruleset/netflixcidr.list
           
       - name: Generate China file
         run: |
