@@ -34,7 +34,6 @@ jobs:
           echo "mangoclover_proxy=https://raw.githubusercontent.com/mangoclover/v2ray-rules-dat/release/proxy-list.txt" >> $GITHUB_ENV
           echo "felixonmars_apple=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" >> $GITHUB_ENV
           echo "custom_icloud=https://raw.githubusercontent.com/mangoclover/domain-list-custom/release/icloud.txt" >> $GITHUB_ENV
-          echo "Netflix_cidr=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/netflix.txt" >> $GITHUB_ENV
         shell: bash
         
       - name: Checkout the default branch
@@ -94,8 +93,6 @@ jobs:
       - name: Generate Netflix file
         run: |
           curl -sSL ${Netflix}  | grep -v "#" > Ruleset/Netflix.list
-          curl -sSL ${Netflix_cidr} | perl -ne '/^(\d{1,3}(\.\d{1,3}){3}\/\d{1,2})/ && print "IP-CIDR,$1\n"' > Ruleset/netflixcidr.list
-          curl -sSL ${Netflix_cidr} | grep ":" | perl -ne '/(.+\/\d+)/ && print "IP-CIDR6,$1\n"' >> Ruleset/netflixcidr.list
           
       - name: Generate China file
         run: |
